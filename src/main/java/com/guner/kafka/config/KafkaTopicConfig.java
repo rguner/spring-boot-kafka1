@@ -14,6 +14,8 @@ import java.util.Map;
 public class KafkaTopicConfig {
 
     public static final String TOPIC_NAME = "topic-1";
+    public static final String TOPIC_NAME_2 = "topic-2";
+    public static final String TOPIC_NAME_3 = "topic-3";
 
     @Value(value = "${spring.kafka.bootstrap-servers:http://localhost:9092}")
     private String bootstrapAddress;
@@ -24,9 +26,19 @@ public class KafkaTopicConfig {
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         return new KafkaAdmin(configs);
     }
-    
+
     @Bean
     public NewTopic topic1() {
-         return new NewTopic(TOPIC_NAME, 1, (short) 1);
+        return new NewTopic(TOPIC_NAME, 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic topic2() {
+        return new NewTopic(TOPIC_NAME_2, 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic topic3() {
+        return new NewTopic(TOPIC_NAME_3, 1, (short) 1);
     }
 }
