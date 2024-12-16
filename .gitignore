@@ -31,5 +31,5 @@ build/
 ### VS Code ###
 .vscode/
 
-.ADS_Store
+!**/.DS_Store
 
