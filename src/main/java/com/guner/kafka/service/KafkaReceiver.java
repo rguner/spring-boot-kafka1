@@ -16,6 +16,7 @@ public class KafkaReceiver {
     @KafkaListener(topics = "topic-1", groupId = "group-2")
     public void listenGroupGroup2(String message) {
         System.out.println("-----   Received Message in group group-2: " + message);
+        throw new RuntimeException("Receive Exception to test retry mechanism");
     }
 
     //@KafkaListener(topics = "topic-1, topic-2", groupId = "group-1")
